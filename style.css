@@ -1,0 +1,87 @@
+body {
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flag {
+  width: 480px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  animation: wave 3s infinite linear;
+  transform-origin: left center;
+  border: 2px solid #111;
+}
+
+/* Stripes */
+.stripe {
+  flex: 1;
+  background-size: 200% 200%;
+  background-position: 0 0;
+}
+
+.saffron {
+  background: linear-gradient(
+    to bottom,
+    #ff9933 0%,
+    #e0802f 50%,
+    #ff9933 100%
+  );
+}
+
+.white {
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f0f0f0 50%,
+    #ffffff 100%
+  );
+  position: relative;
+}
+
+.green {
+  background: linear-gradient(
+    to bottom,
+    #138808 0%,
+    #0f6a06 50%,
+    #138808 100%
+  );
+}
+
+/* Chakra */
+.chakra {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60px;
+}
+
+/* Waving animation */
+@keyframes wave {
+  0% { transform: rotateY(0deg) skewY(0deg); }
+  25% { transform: rotateY(2deg) skewY(1deg); }
+  50% { transform: rotateY(0deg) skewY(0deg); }
+  75% { transform: rotateY(-2deg) skewY(-1deg); }
+  100% { transform: rotateY(0deg) skewY(0deg); }
+}
+
+/* Cloth texture effect */
+.flag::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.1) 0px,
+    rgba(255,255,255,0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
